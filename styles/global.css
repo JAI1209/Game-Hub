@@ -99,7 +99,7 @@ body.is-ready .page-shell {
 .hero-actions > *,
 .profile-form-actions > *,
 .page-actions > * {
-  flex: 1 1 10rem;
+  flex: 0 1 auto;
 }
 
 .topbar-pill,
@@ -774,6 +774,13 @@ body.is-ready .page-shell {
 }
 
 @media (min-width: 560px) {
+  .control-group > *,
+  .hero-actions > *,
+  .profile-form-actions > *,
+  .page-actions > * {
+    flex: 1 1 10rem;
+  }
+
   .stats-grid,
   .stats-grid-compact,
   .game-grid,
@@ -1029,3 +1036,5 @@ body.is-ready .page-shell {
     padding: 1rem;
   }
 }
+
+
