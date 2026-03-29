@@ -6,6 +6,7 @@
 .snake-canvas-wrap {
   display: grid;
   justify-items: center;
+  overflow: hidden;
   padding: var(--space-3);
   border-radius: var(--radius-lg);
   border: 1px solid var(--line-soft);
@@ -13,7 +14,8 @@
 }
 
 #snakeCanvas {
-  width: min(100%, 26rem);
+  width: 100%;
+  max-width: 26rem;
   height: auto;
   aspect-ratio: 1;
   margin: 0 auto;
@@ -63,4 +65,19 @@
 .pad-right {
   grid-column: 3;
   grid-row: 2;
+}
+
+@media (max-width: 420px) {
+  .snake-canvas-wrap {
+    padding: 0.75rem;
+  }
+
+  #snakeCanvas {
+    border-radius: 1rem;
+  }
+
+  .snake-pad {
+    width: 100%;
+    max-width: 14rem;
+  }
 }

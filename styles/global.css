@@ -16,11 +16,16 @@ body {
   overflow-x: hidden;
   font-family: var(--font-body);
   background:
-    radial-gradient(circle at top left, rgba(169, 120, 66, 0.12), transparent 18rem),
-    radial-gradient(circle at top right, rgba(95, 122, 100, 0.1), transparent 20rem),
-    linear-gradient(180deg, #fcfbf8 0%, #f6f3ec 100%);
+    radial-gradient(circle at 15% 10%, rgba(169, 120, 66, 0.15), transparent 22rem),
+    radial-gradient(circle at 85% 15%, rgba(95, 122, 100, 0.12), transparent 24rem),
+    radial-gradient(circle at 50% 120%, rgba(120, 110, 90, 0.08), transparent 30rem),
+    linear-gradient(180deg, #fdfcf9 0%, #f7f4ee 40%, #f3efe6 100%);
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background 0.6s ease;
 }
 
 a {
@@ -47,7 +52,7 @@ canvas {
 .page-shell {
   width: min(100%, var(--page-max));
   margin: 0 auto;
-  padding: clamp(1rem, 2vw, 1.5rem) clamp(0.95rem, 3vw, 1.125rem) clamp(2rem, 5vw, 2.75rem);
+  padding: clamp(0.85rem, 2vw, 1.5rem) clamp(0.8rem, 3vw, 1.125rem) clamp(1.75rem, 5vw, 2.75rem);
   opacity: 0;
   transform: translateY(0.75rem);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -71,7 +76,7 @@ body.is-ready .page-shell {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  padding: clamp(1rem, 2vw, 1.125rem);
+  padding: clamp(0.95rem, 2vw, 1.125rem);
   margin-bottom: var(--space-5);
 }
 
@@ -90,6 +95,13 @@ body.is-ready .page-shell {
   gap: var(--space-3);
 }
 
+.control-group > *,
+.hero-actions > *,
+.profile-form-actions > *,
+.page-actions > * {
+  flex: 1 1 10rem;
+}
+
 .topbar-pill,
 .back-link,
 .player-chip,
@@ -103,6 +115,7 @@ body.is-ready .page-shell {
   border-radius: 999px;
   font-size: 0.86rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .topbar-pill,
@@ -150,16 +163,16 @@ body.is-ready .page-shell {
 }
 
 .brand-title {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
 }
 
 .hero-title,
 .featured-title {
-  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-size: clamp(2rem, 4vw, 3.8rem);
 }
 
 .page-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(1.85rem, 4vw, 2.8rem);
 }
 
 .eyebrow {
@@ -290,7 +303,7 @@ body.is-ready .page-shell {
 .game-panel,
 .game-side-panel,
 .page-hero {
-  padding: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(0.95rem, 2vw, 1.5rem);
 }
 
 .hub-hero > *,
@@ -455,7 +468,10 @@ body.is-ready .page-shell {
 
 .stats-grid,
 .stats-grid-compact,
-.game-grid {
+.game-grid,
+.summary-grid,
+.mini-stat-grid,
+.status-strip {
   grid-template-columns: 1fr;
 }
 
@@ -769,7 +785,7 @@ body.is-ready .page-shell {
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 860px) {
   .hub-hero {
     grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 21rem);
     align-items: stretch;
@@ -802,7 +818,7 @@ body.is-ready .page-shell {
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1040px) {
   .dashboard-main {
     grid-template-columns: minmax(0, 1.45fr) 22rem;
     align-items: start;
@@ -821,7 +837,7 @@ body.is-ready .page-shell {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1120px) {
   .hub-hero {
     grid-template-columns: minmax(0, 1.35fr) 22rem;
   }
@@ -837,7 +853,7 @@ body.is-ready .page-shell {
   }
 }
 
-@media (max-width: 719px) {
+@media (max-width: 859px) {
   .topbar {
     align-items: flex-start;
     flex-direction: column;
@@ -901,8 +917,9 @@ body.is-ready .page-shell {
 
 @media (max-width: 540px) {
   .featured-title,
-  .hero-title {
-    font-size: 2rem;
+  .hero-title,
+  .page-title {
+    font-size: clamp(1.7rem, 8vw, 2rem);
   }
 
   .topbar-actions,
@@ -929,8 +946,11 @@ body.is-ready .page-shell {
 
   .profile-head,
   .brand,
-  .panel-heading {
+  .panel-heading,
+  .game-card-head,
+  .card-meta {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .game-card-body {
@@ -955,3 +975,57 @@ body.is-ready .page-shell {
   }
 }
 
+@media (max-width: 420px) {
+  .app-shell,
+  .page-shell {
+    padding: 0.7rem 0.7rem 1.4rem;
+  }
+
+  .topbar,
+  .featured-panel,
+  .profile-panel,
+  .library-panel,
+  .stats-panel,
+  .info-panel,
+  .leaderboard-card,
+  .game-panel,
+  .game-side-panel,
+  .page-hero {
+    padding: 0.9rem;
+  }
+
+  .glass-card {
+    border-radius: 18px;
+  }
+
+  .brand-mark,
+  .card-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.9rem;
+  }
+
+  .profile-avatar {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .feature-stat,
+  .stat-card,
+  .score-pill,
+  .summary-card,
+  .mini-stat-card,
+  .insight-item,
+  .game-card {
+    padding: 0.9rem;
+  }
+
+  .leaderboard-table-compact tr,
+  .leaderboard-table:not(.leaderboard-table-compact) tr {
+    padding: 0.9rem;
+  }
+
+  .empty-state {
+    padding: 1rem;
+  }
+}

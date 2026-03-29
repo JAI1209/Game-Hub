@@ -20,7 +20,7 @@
   background: var(--bg-soft);
   color: var(--text-primary);
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 10vw, 3.6rem);
+  font-size: clamp(2rem, 10vw, 3.6rem);
   font-weight: 700;
   transition: transform var(--transition-base), border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
 }
@@ -48,5 +48,15 @@
 @media (min-width: 560px) {
   .ttt-scoreboard {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .ttt-board {
+    gap: 0.55rem;
+  }
+
+  .ttt-cell {
+    border-radius: 0.95rem;
   }
 }
