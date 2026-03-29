@@ -1,5 +1,7 @@
 ﻿.memory-board {
   display: grid;
+  width: min(100%, 30rem);
+  margin: 0 auto;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
 }
@@ -56,5 +58,9 @@
 @media (max-width: 420px) {
   .memory-board {
     gap: 0.6rem;
+  }
+
+  .memory-card-face {
+    font-size: 0.82rem;
   }
 }

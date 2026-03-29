@@ -4,6 +4,8 @@
 }
 
 .snake-canvas-wrap {
+  display: grid;
+  justify-items: center;
   padding: var(--space-3);
   border-radius: var(--radius-lg);
   border: 1px solid var(--line-soft);
@@ -12,6 +14,8 @@
 
 #snakeCanvas {
   width: min(100%, 26rem);
+  height: auto;
+  aspect-ratio: 1;
   margin: 0 auto;
   border-radius: 1.25rem;
   background: #f0ece4;
@@ -22,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
-  width: min(100%, 15rem);
+  width: min(100%, 16rem);
   margin: 0 auto;
 }
 

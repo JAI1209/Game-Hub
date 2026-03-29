@@ -90,13 +90,22 @@
     container.appendChild(state);
   }
 
+  function setCellLabel(cell, label) {
+    cell.dataset.label = label;
+  }
+
   function renderLeaderboardRows(container, entries, { variant = "full" } = {}) {
     if (!container) {
       return;
     }
 
     if (!entries.length) {
-      renderEmptyState(container, "No scores yet", "Finish a game to add scores to the leaderboard.", variant === "compact" ? 5 : 6);
+      renderEmptyState(
+        container,
+        "No scores yet",
+        "Finish a game to add scores to the leaderboard.",
+        variant === "compact" ? 5 : 6
+      );
       return;
     }
 
@@ -111,16 +120,22 @@
       const scoreCell = document.createElement("td");
       const resultCell = document.createElement("td");
 
+      setCellLabel(rankCell, "Rank");
       rankCell.innerHTML = `<span class="rank-pill">#${index + 1}</span>`;
 
       const playerName = document.createElement("span");
       playerName.className = "table-player";
       playerName.textContent = entry.playerName;
+      setCellLabel(playerCell, "Player");
       playerCell.appendChild(playerName);
 
+      setCellLabel(gameCell, "Game");
       gameCell.textContent = formatGameName(entry.gameId);
+
+      setCellLabel(scoreCell, "Score");
       scoreCell.textContent = String(entry.score);
 
+      setCellLabel(resultCell, "Result");
       const resultTitle = document.createElement("span");
       resultTitle.textContent = entry.result;
       resultCell.appendChild(resultTitle);
@@ -136,6 +151,7 @@
 
       if (variant === "full") {
         const dateCell = document.createElement("td");
+        setCellLabel(dateCell, "Played");
         dateCell.textContent = formatDateTime(entry.playedAt);
         row.appendChild(dateCell);
       }
