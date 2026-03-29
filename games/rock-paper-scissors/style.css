@@ -1,0 +1,87 @@
+﻿.rps-choices,
+.rps-arena {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.choice-btn,
+.choice-display,
+.result-banner {
+  border-radius: 1.1rem;
+  border: 1px solid var(--line-soft);
+  background: var(--bg-card);
+}
+
+.choice-btn {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem;
+  color: var(--text-primary);
+  text-align: left;
+  transition: transform var(--transition-base), border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+}
+
+.choice-btn:hover,
+.choice-btn.is-active {
+  transform: translateY(-0.08rem);
+  border-color: var(--line-strong);
+  background: var(--bg-soft);
+  box-shadow: 0 10px 18px rgba(24, 21, 18, 0.06);
+}
+
+.choice-key {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.choice-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.choice-display {
+  padding: var(--space-4);
+}
+
+.choice-display.is-win {
+  border-color: #c7d5c8;
+  background: #eff5ef;
+}
+
+.choice-display.is-loss {
+  border-color: #dcc4bd;
+  background: #fbf1ee;
+}
+
+.result-banner {
+  padding: 1rem 1.1rem;
+  color: var(--text-secondary);
+}
+
+.result-banner[data-state="win"] {
+  border-color: #c7d5c8;
+  background: #eff5ef;
+  color: #34523c;
+}
+
+.result-banner[data-state="loss"] {
+  border-color: #dcc4bd;
+  background: #fbf1ee;
+  color: #7a4135;
+}
+
+.result-banner[data-state="draw"] {
+  border-color: #dfd3bf;
+  background: #faf4e9;
+  color: #7a5d34;
+}
+
+@media (min-width: 640px) {
+  .rps-choices,
+  .rps-arena {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

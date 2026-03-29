@@ -1,0 +1,62 @@
+﻿.snake-panel {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.snake-canvas-wrap {
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-soft);
+  background: var(--bg-soft);
+}
+
+#snakeCanvas {
+  width: min(100%, 26rem);
+  margin: 0 auto;
+  border-radius: 1.25rem;
+  background: #f0ece4;
+  box-shadow: inset 0 0 0 1px #ddd5c8;
+}
+
+.snake-pad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  width: min(100%, 15rem);
+  margin: 0 auto;
+}
+
+.snake-pad button {
+  min-height: 3.1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line-soft);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-weight: 700;
+  transition: transform var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+}
+
+.snake-pad button:hover {
+  transform: translateY(-0.08rem);
+  border-color: var(--line-strong);
+  background: var(--bg-soft);
+}
+
+.pad-up {
+  grid-column: 2;
+}
+
+.pad-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.pad-down {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.pad-right {
+  grid-column: 3;
+  grid-row: 2;
+}

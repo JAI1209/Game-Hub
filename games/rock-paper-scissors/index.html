@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub | Rock Paper Scissors</title>
+  <link rel="stylesheet" href="../../styles/variables.css">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="rock-paper-scissors">
+  <main class="page-shell">
+    <header class="topbar glass-card">
+      <a class="back-link" href="../../index.html">Back to dashboard</a>
+      <span class="player-chip" id="playerNameChip">Player One</span>
+    </header>
+
+    <section class="page-hero glass-card">
+      <div>
+        <p class="eyebrow">Player versus computer</p>
+        <h1 class="page-title">Rock Paper Scissors</h1>
+        <p class="hero-text">
+          Pick your move, read the matchup, and race the computer to a first-to-five win total.
+        </p>
+      </div>
+      <div class="status-strip">
+        <article class="score-pill">
+          <span class="pill-label">Player score</span>
+          <strong id="rpsPlayerScore">0</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Computer score</span>
+          <strong id="rpsComputerScore">0</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Target</span>
+          <strong id="rpsTargetScore">5</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <article class="glass-card game-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Choice deck</p>
+            <h2 class="panel-title">Make your move</h2>
+          </div>
+        </div>
+
+        <div class="rps-choices" id="rpsChoices">
+          <button class="choice-btn" type="button" data-choice="rock">
+            <span class="choice-key">01</span>
+            <span class="choice-name">Rock</span>
+          </button>
+          <button class="choice-btn" type="button" data-choice="paper">
+            <span class="choice-key">02</span>
+            <span class="choice-name">Paper</span>
+          </button>
+          <button class="choice-btn" type="button" data-choice="scissors">
+            <span class="choice-key">03</span>
+            <span class="choice-name">Scissors</span>
+          </button>
+        </div>
+
+        <div class="rps-arena">
+          <article class="choice-display" id="playerChoiceCard">
+            <span class="stat-label">Player</span>
+            <strong class="summary-value" id="playerChoiceValue">Waiting</strong>
+          </article>
+          <article class="choice-display" id="computerChoiceCard">
+            <span class="stat-label">Computer</span>
+            <strong class="summary-value" id="computerChoiceValue">Waiting</strong>
+          </article>
+        </div>
+
+        <div class="result-banner" id="rpsResultBanner" data-state="idle">
+          First to five wins takes the match.
+        </div>
+
+        <div class="control-group">
+          <button class="button button-secondary" id="resetRpsBtn" type="button">Reset match</button>
+        </div>
+      </article>
+
+      <aside class="glass-card game-side-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Hub activity</p>
+            <h2 class="panel-title">Saved matches</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="stat-label">Best score</span>
+            <strong class="summary-value" id="rpsBestValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Matches logged</span>
+            <strong class="summary-value" id="rpsRunsValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Last result</span>
+            <strong class="summary-value summary-value-small" id="rpsLastResult">No matches yet</strong>
+          </article>
+        </div>
+
+        <p class="helper-text" id="rpsLastPlayed">No activity yet</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../../shared/config.js" defer></script>
+  <script src="../../shared/storage.js" defer></script>
+  <script src="../../shared/scoreboard.js" defer></script>
+  <script src="../../shared/ui.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

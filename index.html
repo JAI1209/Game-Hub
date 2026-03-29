@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>Game Hub</title>
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/global.css">
+</head>
+<body data-page="dashboard">
+  <main class="app-shell app-shell-dashboard">
+    <header class="topbar glass-card topbar-dashboard">
+      <div class="brand">
+        <div class="brand-mark">GH</div>
+        <div>
+          <p class="eyebrow">Game library</p>
+          <h1 class="brand-title">Game Hub</h1>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="topbar-pill">4 games + leaderboard</span>
+        <a class="button button-secondary button-small" href="games/leaderboard/index.html">Open leaderboard</a>
+      </div>
+    </header>
+
+    <section class="hub-hero">
+      <article class="glass-card featured-panel tone-sage" id="featuredPanel">
+        <div class="featured-copy">
+          <p class="eyebrow" id="featuredEyebrow">Recommended start</p>
+          <h2 class="hero-title featured-title" id="featuredGameName">Snake</h2>
+          <p class="hero-text" id="featuredGameCopy">A quick arcade run is a great way to jump into the hub.</p>
+          <div class="hero-actions">
+            <a class="button" id="featuredGameLink" href="games/snake/index.html">Play now</a>
+            <a class="button button-secondary" href="games/leaderboard/index.html">View scores</a>
+          </div>
+        </div>
+
+        <div class="featured-side">
+          <span class="feature-tag" id="featuredGameCategory">Arcade</span>
+          <div class="feature-stats">
+            <article class="feature-stat">
+              <span class="stat-label">Sessions</span>
+              <strong class="stat-value" id="featuredSessions">0</strong>
+            </article>
+            <article class="feature-stat">
+              <span class="stat-label">Best score</span>
+              <strong class="stat-value" id="featuredBestScore">0</strong>
+            </article>
+            <article class="feature-stat">
+              <span class="stat-label">Last result</span>
+              <strong class="stat-value stat-value-small" id="featuredLastResult">New game</strong>
+            </article>
+          </div>
+        </div>
+      </article>
+
+      <aside class="glass-card profile-panel">
+        <div class="profile-head">
+          <div class="profile-avatar" id="profileAvatar">GH</div>
+          <div>
+            <p class="eyebrow">Player profile</p>
+            <h2 class="profile-title" id="profileHeading">Create your player profile</h2>
+            <p class="profile-copy" id="profileCopy">Set a player name to save scores and personalize the hub.</p>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button class="button button-secondary button-small is-hidden" id="editProfileBtn" type="button">Edit name</button>
+        </div>
+
+        <form class="profile-form" id="profileForm" novalidate>
+          <label class="field" for="playerNameInput">
+            <span class="field-label">Player name</span>
+            <input
+              class="field-input"
+              id="playerNameInput"
+              name="playerName"
+              type="text"
+              maxlength="18"
+              placeholder="Enter your player name"
+              autocomplete="nickname"
+            >
+          </label>
+          <div class="profile-form-actions">
+            <button class="button" id="saveProfileBtn" type="submit">Save</button>
+            <button class="button button-secondary" id="cancelProfileBtn" type="button">Cancel</button>
+          </div>
+        </form>
+      </aside>
+    </section>
+
+    <section class="dashboard-main">
+      <section class="glass-card library-panel">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Library</p>
+            <h2 class="section-title">Choose your next game</h2>
+          </div>
+          <p class="section-copy">A clean shelf of quick games, each with saved progress and direct play access.</p>
+        </div>
+        <div class="game-grid game-grid-dashboard" id="gameGrid"></div>
+      </section>
+
+      <aside class="sidebar-stack">
+        <article class="glass-card stats-panel">
+          <div class="section-header section-header-compact">
+            <div>
+              <p class="eyebrow">Hub stats</p>
+              <h2 class="section-title">Your activity</h2>
+            </div>
+          </div>
+
+          <div class="stats-grid stats-grid-compact">
+            <article class="stat-card">
+              <span class="stat-label">Total games played</span>
+              <strong class="stat-value" id="totalGamesPlayed">0</strong>
+              <span class="stat-copy">Completed sessions across all games.</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Best score</span>
+              <strong class="stat-value" id="bestScoreValue">0</strong>
+              <span class="stat-copy" id="bestScoreContext">No score history yet.</span>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Last played</span>
+              <strong class="stat-value stat-value-small" id="lastPlayedGame">No activity yet</strong>
+              <span class="stat-copy" id="lastPlayedTime">Start any game to generate activity.</span>
+            </article>
+          </div>
+        </article>
+
+        <article class="glass-card info-panel">
+          <div class="section-header section-header-compact">
+            <div>
+              <p class="eyebrow">Highlights</p>
+              <h2 class="section-title">Quick view</h2>
+            </div>
+          </div>
+
+          <div class="insight-list">
+            <div class="insight-item">
+              <span class="summary-inline-label">Favorite game</span>
+              <strong id="favoriteGameValue">No data</strong>
+            </div>
+            <div class="insight-item">
+              <span class="summary-inline-label">Top player</span>
+              <strong id="topPlayerValue">No data</strong>
+            </div>
+            <div class="insight-item">
+              <span class="summary-inline-label">Leaderboard entries</span>
+              <strong id="leaderboardEntriesValue">0</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass-card leaderboard-card">
+          <div class="section-header section-header-compact">
+            <div>
+              <p class="eyebrow">Scores</p>
+              <h2 class="section-title">Leaderboard preview</h2>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Player</th>
+                  <th>Game</th>
+                  <th>Score</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardPreviewBody"></tbody>
+            </table>
+          </div>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <script src="shared/config.js" defer></script>
+  <script src="shared/storage.js" defer></script>
+  <script src="shared/scoreboard.js" defer></script>
+  <script src="shared/ui.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub | Leaderboard</title>
+  <link rel="stylesheet" href="../../styles/variables.css">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="leaderboard">
+  <main class="page-shell">
+    <header class="topbar glass-card">
+      <a class="back-link" href="../../index.html">Back to dashboard</a>
+      <span class="player-chip" id="playerNameChip">Player One</span>
+    </header>
+
+    <section class="page-hero glass-card">
+      <div>
+        <p class="eyebrow">Global scores</p>
+        <h1 class="page-title">Leaderboard</h1>
+        <p class="hero-text">
+          Every saved session is sorted here by score, regardless of which game generated it.
+        </p>
+      </div>
+      <div class="status-strip">
+        <article class="score-pill">
+          <span class="pill-label">Entries</span>
+          <strong id="leaderboardEntriesCount">0</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Top score</span>
+          <strong id="leaderboardTopScore">0</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Favorite game</span>
+          <strong id="leaderboardFavoriteGame">No data</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <article class="glass-card leaderboard-card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">All games</p>
+            <h2 class="section-title">Hall of fame</h2>
+          </div>
+          <div class="page-actions">
+            <button class="button button-danger" id="resetLeaderboardBtn" type="button">Reset leaderboard</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Game</th>
+                <th>Score</th>
+                <th>Result</th>
+                <th>Played</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardTableBody"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="../../shared/config.js" defer></script>
+  <script src="../../shared/storage.js" defer></script>
+  <script src="../../shared/scoreboard.js" defer></script>
+  <script src="../../shared/ui.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

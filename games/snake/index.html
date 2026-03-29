@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub | Snake</title>
+  <link rel="stylesheet" href="../../styles/variables.css">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="snake">
+  <main class="page-shell">
+    <header class="topbar glass-card">
+      <a class="back-link" href="../../index.html">Back to dashboard</a>
+      <span class="player-chip" id="playerNameChip">Player One</span>
+    </header>
+
+    <section class="page-hero glass-card">
+      <div>
+        <p class="eyebrow">Arcade run</p>
+        <h1 class="page-title">Snake</h1>
+        <p class="hero-text">
+          Stay inside the grid, collect food, and handle a faster loop every time the score climbs.
+        </p>
+      </div>
+      <div class="status-strip">
+        <article class="score-pill">
+          <span class="pill-label">Score</span>
+          <strong id="snakeScoreValue">0</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Speed</span>
+          <strong id="snakeSpeedValue">Base</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Best run</span>
+          <strong id="snakeBestValue">0</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <article class="glass-card game-panel snake-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Grid movement</p>
+            <h2 class="panel-title">Play area</h2>
+          </div>
+        </div>
+
+        <div class="snake-canvas-wrap">
+          <canvas id="snakeCanvas" width="420" height="420" aria-label="Snake game board"></canvas>
+        </div>
+
+        <p class="status-message" id="snakeStatusMessage">
+          Use arrow keys on desktop or the touch controls below to start.
+        </p>
+
+        <div class="control-group">
+          <button class="button" id="startSnakeBtn" type="button">Start run</button>
+          <button class="button button-secondary" id="pauseSnakeBtn" type="button">Pause</button>
+          <button class="button button-secondary" id="restartSnakeBtn" type="button">Restart</button>
+        </div>
+
+        <div class="snake-pad" id="snakePad">
+          <button class="pad-up" type="button" data-direction="up">Up</button>
+          <button class="pad-left" type="button" data-direction="left">Left</button>
+          <button class="pad-down" type="button" data-direction="down">Down</button>
+          <button class="pad-right" type="button" data-direction="right">Right</button>
+        </div>
+      </article>
+
+      <aside class="glass-card game-side-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Hub activity</p>
+            <h2 class="panel-title">Saved runs</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="stat-label">Runs logged</span>
+            <strong class="summary-value" id="snakeRunsValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Last result</span>
+            <strong class="summary-value summary-value-small" id="snakeLastResult">No runs yet</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Last played</span>
+            <strong class="summary-value summary-value-small" id="snakeLastPlayed">No activity yet</strong>
+          </article>
+        </div>
+
+        <ul class="helper-list">
+          <li>Speed increases automatically as the score rises.</li>
+          <li>Colliding with the wall or your own tail ends the run.</li>
+          <li>Completed runs are pushed into the shared leaderboard.</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../../shared/config.js" defer></script>
+  <script src="../../shared/storage.js" defer></script>
+  <script src="../../shared/scoreboard.js" defer></script>
+  <script src="../../shared/ui.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub | Memory</title>
+  <link rel="stylesheet" href="../../styles/variables.css">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="memory">
+  <main class="page-shell">
+    <header class="topbar glass-card">
+      <a class="back-link" href="../../index.html">Back to dashboard</a>
+      <span class="player-chip" id="playerNameChip">Player One</span>
+    </header>
+
+    <section class="page-hero glass-card">
+      <div>
+        <p class="eyebrow">Card challenge</p>
+        <h1 class="page-title">Memory</h1>
+        <p class="hero-text">
+          Flip, match, and finish the board with as few moves as possible while the timer keeps pressure on every turn.
+        </p>
+      </div>
+      <div class="status-strip">
+        <article class="score-pill">
+          <span class="pill-label">Moves</span>
+          <strong id="memoryMovesValue">0</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Timer</span>
+          <strong id="memoryTimerValue">00:00</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Matches</span>
+          <strong id="memoryMatchesValue">0 / 8</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <article class="glass-card game-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Card flip</p>
+            <h2 class="panel-title">Board</h2>
+          </div>
+        </div>
+
+        <div class="memory-board" id="memoryBoard"></div>
+        <p class="status-message" id="memoryStatusMessage">Flip any card to start the timer.</p>
+
+        <div class="control-group">
+          <button class="button" id="restartMemoryBtn" type="button">Restart board</button>
+        </div>
+      </article>
+
+      <aside class="glass-card game-side-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Hub activity</p>
+            <h2 class="panel-title">Saved runs</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="stat-label">Best score</span>
+            <strong class="summary-value" id="memoryBestValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Runs logged</span>
+            <strong class="summary-value" id="memoryRunsValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Last result</span>
+            <strong class="summary-value summary-value-small" id="memoryLastResult">No runs yet</strong>
+          </article>
+        </div>
+
+        <p class="helper-text" id="memoryLastPlayed">No activity yet</p>
+        <p class="helper-text">
+          Lower move counts and shorter completion times produce stronger leaderboard scores.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../../shared/config.js" defer></script>
+  <script src="../../shared/storage.js" defer></script>
+  <script src="../../shared/scoreboard.js" defer></script>
+  <script src="../../shared/timer.js" defer></script>
+  <script src="../../shared/ui.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

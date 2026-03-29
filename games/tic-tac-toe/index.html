@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub | Tic Tac Toe</title>
+  <link rel="stylesheet" href="../../styles/variables.css">
+  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="tic-tac-toe">
+  <main class="page-shell">
+    <header class="topbar glass-card">
+      <a class="back-link" href="../../index.html">Back to dashboard</a>
+      <span class="player-chip" id="playerNameChip">Player One</span>
+    </header>
+
+    <section class="page-hero glass-card">
+      <div>
+        <p class="eyebrow">Local versus</p>
+        <h1 class="page-title">Tic Tac Toe</h1>
+        <p class="hero-text">
+          Classic grid control with clear win detection, draw handling, and a lightweight match scoreboard.
+        </p>
+      </div>
+      <div class="status-strip">
+        <article class="score-pill">
+          <span class="pill-label">Turn</span>
+          <strong id="turnLabel">Player X</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Round status</span>
+          <strong id="roundStatus">Ready to play</strong>
+        </article>
+        <article class="score-pill">
+          <span class="pill-label">Hub best</span>
+          <strong id="tttBestScore">0</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <article class="glass-card game-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Score tracking</p>
+            <h2 class="panel-title">Match scoreboard</h2>
+          </div>
+        </div>
+
+        <div class="ttt-scoreboard">
+          <article class="summary-card">
+            <span class="stat-label">X wins</span>
+            <strong class="summary-value" id="xWinsValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">O wins</span>
+            <strong class="summary-value" id="oWinsValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Draws</span>
+            <strong class="summary-value" id="drawsValue">0</strong>
+          </article>
+        </div>
+
+        <div class="ttt-board" id="tttBoard" role="grid" aria-label="Tic Tac Toe board">
+          <button class="ttt-cell" type="button" data-index="0" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="1" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="2" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="3" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="4" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="5" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="6" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="7" data-value=""></button>
+          <button class="ttt-cell" type="button" data-index="8" data-value=""></button>
+        </div>
+
+        <p class="status-message" id="statusMessage">Player X, make the opening move.</p>
+
+        <div class="control-group">
+          <button class="button" id="restartRoundBtn" type="button">Restart round</button>
+          <button class="button button-secondary" id="resetMatchBtn" type="button">Reset match</button>
+        </div>
+      </article>
+
+      <aside class="glass-card game-side-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Hub activity</p>
+            <h2 class="panel-title">Saved stats</h2>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="summary-card">
+            <span class="stat-label">Rounds logged</span>
+            <strong class="summary-value" id="tttRoundsValue">0</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Last result</span>
+            <strong class="summary-value summary-value-small" id="tttLastResult">No rounds yet</strong>
+          </article>
+          <article class="summary-card">
+            <span class="stat-label">Last played</span>
+            <strong class="summary-value summary-value-small" id="tttLastPlayed">No activity yet</strong>
+          </article>
+        </div>
+
+        <p class="helper-text">
+          Winning rounds are stored in the shared leaderboard so the dashboard and leaderboard page stay in sync.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../../shared/config.js" defer></script>
+  <script src="../../shared/storage.js" defer></script>
+  <script src="../../shared/scoreboard.js" defer></script>
+  <script src="../../shared/ui.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
